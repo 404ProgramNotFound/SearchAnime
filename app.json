@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "SearchAnime",
+    "slug": "SearchAnime",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icons/appIcon.png",
+    "splash": {
+      "image": "./src/assets/appIcon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#18191a"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/icons/appIcon.png"
+      },
+      "package": "com.animesearch"
+    },
+    "web": {
+      "favicon": "./src/assets/icons/favicon.png"
+    }
+  }
+}
