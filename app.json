@@ -21,7 +21,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/icons/appIcon.png"
+        "foregroundImage": "./src/assets/icons/appIcon.png",
+        "backgroundColor": "#18191a"
       },
       "package": "com.animesearch"
     },

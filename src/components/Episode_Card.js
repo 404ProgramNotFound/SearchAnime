@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import {
-  Linking,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import { episode } from "../services/api/AnimeSaturn";
 import theme from "../theme/theme";
 
+//testing only
+import { useNavigation } from "@react-navigation/native";
+
 const EpisodeCard = (props) => {
+  const navigation = useNavigation();
+
   const openEpisode = (link) => {
     episode(link, (res) => {
-      Linking.openURL(res);
+      navigation.navigate("MediaPlayer", { mp4: res[1], episode: res[0] });
     });
   };
 

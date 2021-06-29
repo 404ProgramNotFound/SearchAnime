@@ -94,11 +94,17 @@ function getAnimeInfo(link, callback) {
     });
 }
 function episode(link, callback) {
+  let anime = [];
   axios
     .get(link)
     .then((res) => {
       const $ = cheerio.load(res.data);
-      callback($(".card-body").children("a").attr("href"));
+      anime.push($(".card-body").children("a").attr("href"));
+      axios.get($(".card-body").children("a").attr("href")).then((res) => {
+        const $ = cheerio.load(res.data);
+        anime.push($("source").attr("src"));
+        callback(anime);
+      });
     })
     .catch(function (error) {
       console.log(error);
