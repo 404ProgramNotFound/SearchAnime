@@ -102,7 +102,16 @@ function episode(link, callback) {
       anime.push($(".card-body").children("a").attr("href"));
       axios.get($(".card-body").children("a").attr("href")).then((res) => {
         const $ = cheerio.load(res.data);
-        anime.push($("source").attr("src"));
+        let aus = $("source").attr("src");
+        if (aus != null) {
+          anime.push(aus);
+        } else {
+          let re = /file: "[^"]*"/g;
+          let results = res.data.match(re);
+          let link = results[0].split('"');
+
+          anime.push(link[1]);
+        }
         callback(anime);
       });
     })
